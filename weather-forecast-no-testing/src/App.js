@@ -9,9 +9,13 @@ function App() {
     console.log("city chosen")
   }
 
+  const coordsHandler = (position) => {
+    console.log(position);
+  }
+
   return (
     <div className="App">
-    <Header city={cityHandler} />
+    <Header city={cityHandler} coords={coordsHandler}/>
     </div>
   );
 }

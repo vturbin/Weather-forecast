@@ -11,6 +11,20 @@ const SearchBar = (props) => {
     setSearchCity(e.target.value);
   };
 
+  const handleResult = (key,cityName,countryName) => {
+    setCityResults([]);
+    setSearchCity(`${cityName}, ${countryName}`)
+    props.city(key);
+  }
+  
+  const currentPositionHandler = () => {
+    setSearchCity("Current Location")
+    window.navigator.geolocation.getCurrentPosition(
+          position=> props.coords(position),
+          err => props.coords(err)
+      );
+  }
+
   useEffect(() => {
     const onBodyClick = (event) => {
      if (ref.current && ref.current.contains(event.target)) {
@@ -27,8 +41,8 @@ const SearchBar = (props) => {
     };
   }, []);
 
-  const printResults = cityResults.map((result,index)=> {
-      return <li key={index} className="search-result-item">{result.LocalizedName}, {result.Country.LocalizedName}</li>
+  const printResults = cityResults.map((result)=> {
+      return <li onClick={()=>handleResult(result.Key,result.LocalizedName, result.Country.LocalizedName)} key={result.Key} className="search-result-item">{result.LocalizedName}, {result.Country.LocalizedName}</li>
   })
  
 
@@ -55,7 +69,7 @@ const SearchBar = (props) => {
       {open ? (
           <div className="search-result-wrapper">
           <ul className="search-result-list">
-          <li key={0} className="search-result-item" onClick={()=>props.city()}>Get Current Location</li>
+          <li key={0} className="search-result-item" onClick={()=>currentPositionHandler()}>Get Current Location</li>
           {printResults}
           </ul>
           </div>

@@ -21,7 +21,7 @@ const Header = (props) => {
         <h2>
           WEATHER4YOU
         </h2>
-        <SearchBar city={props.city} ></SearchBar>
+        <SearchBar city={props.city} coords={props.coords}></SearchBar>
         <h3>
             Today is {day}, {today}
         </h3>
