@@ -4,9 +4,14 @@ import "./App.css";
 import Header from "./Header/Header";
 
 function App() {
+  
+  const cityHandler= () => {
+    console.log("city chosen")
+  }
+
   return (
     <div className="App">
-    <Header/>
+    <Header city={cityHandler} />
     </div>
   );
 }
