@@ -4,13 +4,21 @@ import "./App.css";
 import Header from "./Header/Header";
 
 function App() {
+
+  const showForecastFromCity = (key,cityName,countryName) => {
+
+  }
+
+  const showForecastFromCoordinates = (position) => {
+
+  }
   
-  const cityHandler= () => {
-    console.log("city chosen")
+  const cityHandler= (key, cityName, countryName) => {
+    showForecastFromCity(key,cityName,countryName);
   }
 
   const coordsHandler = (position) => {
-    console.log(position);
+    showForecastFromCoordinates(position);
   }
 
   return (
