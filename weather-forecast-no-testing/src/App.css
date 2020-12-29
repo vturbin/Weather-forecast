@@ -10,7 +10,23 @@
     display: flex;
     margin-top: 50px;
     align-items: stretch;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1500px) {
+
+    .weather-cards
+    {
+        padding-left: 0vw;
+        padding-right: 0vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .weather-cards
+    {
+        flex-wrap: wrap;
+    }
 }

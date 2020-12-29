@@ -41,7 +41,7 @@ function App() {
             weather = "showers";
           } else if (day.Day.IconPhrase === "Mostly cloudy" || day.Day.IconPhrase === "Cloudy" ) {
             weather = "cloudy";
-          } else if (day.Day.IconPhrase === "Partly sunny") {
+          } else if (day.Day.IconPhrase === "Partly sunny" || day.Day.IconPhrase ===  "Intermittent clouds") {
             weather = "cloud-sun"
           } else if (day.Day.IconPhrase.toLowerCase().includes("snow")) {
             weather = "snow"
