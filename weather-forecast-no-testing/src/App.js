@@ -66,15 +66,11 @@ function App() {
       });
   };
 
-  const showForecastFromCoordinates = (position) => {};
 
   const cityHandler = (key, cityName, countryName) => {
     showForecastFromCity(key, cityName, countryName);
   };
 
-  const coordsHandler = (position) => {
-    showForecastFromCoordinates(position);
-  };
 
   const displayForecast = forecastDays.map((day, index) => (
     <WeatherCard
@@ -88,7 +84,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header city={cityHandler} coords={coordsHandler} />
+      <Header city={cityHandler} />
       <div className="weather-cards">{displayForecast}</div>
     </div>
   );

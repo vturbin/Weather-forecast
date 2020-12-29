@@ -19,10 +19,27 @@ const SearchBar = (props) => {
   };
 
   const currentPositionHandler = () => {
-    setSearchCity("Current Location");
     window.navigator.geolocation.getCurrentPosition(
-      (position) => props.coords(position),
-      (err) => props.coords(err)
+      (position) => {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        axios.get(
+            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search",
+            {
+              params: {
+                apikey: "O0Hlip2ayjhAOl1n5ghnNQwS2AnXJ6Um",
+                q: `${lat},${long}`,
+                language: "en-us",
+                toplevel: true
+              },
+            }
+          ).then((res)=> {
+              const key = res.data.Key;
+              const cityName = res.data.LocalizedName;
+              const countryName = res.data.Country.LocalizedName;
+              handleResult(key,cityName,countryName);
+          })
+      }
     );
   };
 
