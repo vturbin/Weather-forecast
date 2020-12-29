@@ -2,6 +2,7 @@ import "./App.css";
 // import 'materialize-css';
 // import { Navbar, Icon } from 'react-materialize';
 import Header from "./Header/Header";
+import WeatherCard from "./WeatherCard/WeatherCard";
 
 function App() {
 
@@ -24,6 +25,13 @@ function App() {
   return (
     <div className="App">
     <Header city={cityHandler} coords={coordsHandler}/>
+    <div className="weather-cards">
+      <WeatherCard/>
+      <WeatherCard/>
+      <WeatherCard/>
+      <WeatherCard/>
+      <WeatherCard/>
+    </div>
     </div>
   );
 }

@@ -58,7 +58,7 @@ const SearchBar = (props) => {
   };
 
   useEffect(() => {
-    if (!searchCity) {
+    if (!searchCity || searchCity.includes(',')) {
       return;
     }
     const timer = setTimeout(retrieveCities, 1000);

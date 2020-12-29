@@ -1,0 +1,25 @@
+.card-wrapper {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    background: white;
+    width: 200px;
+    height: 300px;
+    margin: 30px;
+}
+
+.card-wrapper > h2 {
+    margin: 0;
+}
+
+.card-wrapper > p {
+    color: grey;
+    margin: 5px auto;
+}
+
+.weather-icon {
+    margin-top: 20px;
+    color: grey;
+    height: 60px;
+    width: 60px !important;
+}
