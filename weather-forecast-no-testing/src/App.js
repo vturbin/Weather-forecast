@@ -39,23 +39,30 @@ function App() {
             day.Day.IconPhrase === "Mostly cloudy w/ showers"
           ) {
             weather = "showers";
-          } else if (day.Day.IconPhrase === "Mostly cloudy" || day.Day.IconPhrase === "Cloudy" ) {
+          } else if (
+            day.Day.IconPhrase === "Mostly cloudy" ||
+            day.Day.IconPhrase === "Cloudy" ||
+            day.Day.IconPhrase === "Dreary"
+          ) {
             weather = "cloudy";
-          } else if (day.Day.IconPhrase === "Partly sunny" || day.Day.IconPhrase ===  "Intermittent clouds") {
-            weather = "cloud-sun"
+          } else if (
+            day.Day.IconPhrase === "Partly sunny" ||
+            day.Day.IconPhrase === "Intermittent clouds"
+          ) {
+            weather = "cloud-sun";
           } else if (day.Day.IconPhrase.toLowerCase().includes("snow")) {
-            weather = "snow"
-          } else if (day.Day.IconPhrase.toLowerCase().includes('sunny')) {
-            weather = 'sunny'
+            weather = "snow";
+          } else if (day.Day.IconPhrase.toLowerCase().includes("sunny")) {
+            weather = "sunny";
           }
           return {
             date: day["Date"],
             weatherType: weather,
-            temperature: Math.round(day.Temperature.Maximum.Value,0),
+            temperature: Math.round(day.Temperature.Maximum.Value, 0),
             description: day.Day.ShortPhrase,
           };
         });
-        setForecastDays(transformedDailyForecasts)
+        setForecastDays(transformedDailyForecasts);
       });
   };
 
@@ -78,14 +85,11 @@ function App() {
       description={day.description}
     />
   ));
-  console.log(displayForecast);
 
   return (
     <div className="App">
       <Header city={cityHandler} coords={coordsHandler} />
-      <div className="weather-cards">
-        {displayForecast}
-      </div>
+      <div className="weather-cards">{displayForecast}</div>
     </div>
   );
 }
