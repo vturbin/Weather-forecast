@@ -14,13 +14,23 @@ const WeatherCard = (props) => {
         "sunny": faSun,
         "showers": faCloudShowersHeavy
     }
+
+    const getDayOfWeek = (date) => {
+        const dayOfWeek = new Date(date).getDay();
+        console.log(dayOfWeek)
+        return isNaN(dayOfWeek) ? null : 
+          ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+      }
+    
+    const weekDay = getDayOfWeek(props.date);
+
     return (
         <div className="card-wrapper">
-        <h2 className="card-day">Friday</h2>
+        <h2 className="card-day">{weekDay}</h2>
         <p className="card-date">29.12</p>
-        <FontAwesomeIcon icon={weatherIcons['snow']} className="weather-icon"/>
-        <h1>4°C</h1>
-        <p>clear sky</p>
+        <FontAwesomeIcon icon={weatherIcons[props.weatherType]} className="weather-icon"/>
+        <h1>{props.temperature}°C</h1>
+        <p>{props.description}</p>
         </div>
     );
 }
